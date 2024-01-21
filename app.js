@@ -5,6 +5,10 @@ const body = document.getElementById('center');
 let isRotated = false;
 let istoggled = false;
 
+ScrollReveal().reveal('.web')
+ScrollReveal().reveal('.image-top', { delay: 500 })
+ScrollReveal().reveal('.image-bottom', { delay: 1000 })
+
 function rotate() {
   if (isRotated) {
     body.removeEventListener('click', rotate);
