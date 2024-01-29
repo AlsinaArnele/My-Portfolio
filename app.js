@@ -6,8 +6,8 @@ let isRotated = false;
 let istoggled = false;
 
 ScrollReveal().reveal('.web')
-ScrollReveal().reveal('.image-top', { delay: 500 })
-ScrollReveal().reveal('.image-bottom', { delay: 1000 })
+ScrollReveal().reveal('.image-top', { delay: 300 })
+ScrollReveal().reveal('.image-bottom', { delay: 600 })
 
 function rotate() {
   if (isRotated) {
