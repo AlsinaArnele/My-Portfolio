@@ -52,11 +52,6 @@ img{
   width: 3vw;
   height: 3vw;
 }
-.progress-bar{
-  height: 43vh;
-  width: 1px;
-  background-color:teal;
-}
 #logos-placeholder{
   display: none;
   align-items: center;
@@ -112,9 +107,6 @@ img{
 
 
 
-
-
-
 #center{
   width: 100vw;
   height: max-content;
@@ -133,6 +125,17 @@ img{
   height: 33vh;
   margin-top: 30vh;
   text-align: center;
+}
+.progress-bar{
+  height: 10vh;
+  width: 1px;
+  background-color:teal;
+  z-index: 999;
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 20vh;
+  left: 5vw;
+  z-index: 999;
 }
 .hero-text h1{
   font-size: 7vw;
@@ -180,7 +183,7 @@ img{
   height: 100vh;
 }
 .reel{
-  width: 50vw;
+  width: 100vh;
   height: 50vh;
   margin-top: 20vh;
   position: absolute;
@@ -189,16 +192,23 @@ img{
   justify-content: space-between;
   background-color: white;
   transform: rotate(-40deg);
-  border-top: 1px solid teal;
-  border-left: 1px solid teal;
-  /* mix-blend-mode: multiply; */
+  mix-blend-mode: subtract;
 }
 .reel-item{
-  width: 49%;
+  width: 50%;
   height: 100%;
-  background-color: lightgray;
+  background-color: transparent;
   position: relative;
   overflow: hidden;
+}
+.reel-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 
@@ -404,6 +414,11 @@ img{
   background-color: limegreen;
   margin-left: 30vw;
 }
+.web .image-top{
+  background-image: url(assets/Web\ Login.png);
+  background-size: cover;
+}
+
 .web2{
   width: 30vw;
   height: 60vh;
@@ -508,4 +523,17 @@ img{
   100% {
     transform: translateX(45vw);
   }
+}
+
+#center .imagess:hover ~ .progress-bar {
+  height: 25vh;
+}
+#center .portfolio:hover ~ .progress-bar {
+  height: 45vh;
+}
+#center .about:hover ~ .progress-bar {
+  height: 35vh;
+}
+#center .contacts:hover ~ .progress-bar {
+  height: 55vh;
 }
