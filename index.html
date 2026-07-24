@@ -4,185 +4,219 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Levis</title>
+  <title>Ronald Levis Kibet — Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://unpkg.com/scrollreveal@4"></script>
   <script>
-    ScrollReveal({ duration: 1000 })
+    document.addEventListener("DOMContentLoaded", function() {
+      ScrollReveal({ duration: 1000, distance: '20px' });
+    });
   </script>
 </head>
 
 <body>
+  <!-- LEFT NAVIGATION & SOCIALS -->
   <section id="left">
-    <img src="assets/Light.png" alt="logo">
+    <img src="assets/Light.png" alt="Logo" class="logo">
     <div class="left-bottom">
       <div class="socials">
         <div class="animated"></div>
         <div class="static"></div>
         <ul id="logos-placeholder" class="hover-logo">
-          <li><a href="linkedin.com" rel="noopener" target="_blank">LinkedIn</a></li>
-          <li><a href="linkedin.com" rel="noopener" target="_blank">Github</a></li>
-          <li><a href="linkedin.com" rel="noopener" target="_blank">SketchFab</a></li>
+          <li><a href="https://linkedin.com/in/yourprofile" rel="noopener" target="_blank">LinkedIn</a></li>
+          <li><a href="https://github.com/yourusername" rel="noopener" target="_blank">GitHub</a></li>
+          <li><a href="https://sketchfab.com/yourusername" rel="noopener" target="_blank">SketchFab</a></li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- MAIN CENTER CONTENT -->
   <section id="center">
-    <div class="hero">
+    <!-- HERO SECTION -->
+    <div class="hero" id="landing">
       <div class="hero-text">
-        <h1>Ronald<br /><span class="firstname">Levis</span> Kibet</h1><br />
-        <h2>Software developer.</h2>
+        <h1>Ronald<br /><span class="firstname">Levis</span> Kibet</h1>
+        <h2>Software Developer & Operations Automations Engineer</h2>
       </div>
     </div>
-    <div class="imagess" id="landing">
-      <div class="image-left">
 
-      </div>
+    <!-- HERO IMAGE REEL -->
+    <div class="imagess">
+      <div class="image-left"></div>
       <div class="image-right">
         <div class="reel">
           <div class="reel-item">
-            <img src="assets/IMG_2661-1.png" alt="">
+            <img src="assets/IMG_2661-1.png" alt="Visual Identity">
           </div>
           <div class="reel-item">
-            <img src="assets/IMG_2456.JPG" alt="">
+            <img src="assets/IMG_2456.JPG" alt="Operations Leader">
           </div>
         </div>
       </div>
     </div>
-    <div class="about">
-      <h1>Expert in brand design, creation of logos and visual identities</h1>
-      <a href="experience.html">Experience</a>
+
+    <!-- ABOUT & CORE PHILOSOPHY -->
+    <div class="about" id="about">
+      <h1>Building resilient systems that save time and empower people to grow.</h1>
+      <p class="about-subtext">
+        Specializing in full-stack web applications, AI-driven process automations, and operational workflows that eliminate friction.
+      </p>
+      <a href="experience.html" class="cta-link">Explore Experience & Achievements</a>
     </div>
+
+    <!-- IMPACT STATS METRICS -->
+    <div class="metrics-container">
+      <div class="metric-card">
+        <h3>87.5%</h3>
+        <p>Weekly Overhead Reduction</p>
+      </div>
+      <div class="metric-card">
+        <h3>>8</h3>
+        <p>Enterprise Automations Built</p>
+      </div>
+      <div class="metric-card">
+        <h3>>300</h3>
+        <p>Team Members Trained & Onboarded</p>
+      </div>
+    </div>
+
+    <!-- PORTFOLIO SECTION -->
     <div class="portfolio" id="portfolio">
       <div class="title">
-        <h1>My Works</h1>
+        <h1>Selected Works</h1>
       </div>
-      <div class="web">
-        <div class="image-top">
 
+      <!-- PROJECT 1: Medbot (External Project) -->
+      <div class="project-card web">
+        <div class="project-content">
+          <span class="badge">IBM Call for Code</span>
+          <h2>Medbot</h2>
+          <p>Healthcare assistance platform developed for the IBM Call for Code challenge, designed to streamline medical query triage and accessibility.</p>
         </div>
-        <div class="image-bottom">
+      </div>
 
+      <!-- PROJECT 2: Emat (External Project) -->
+      <div class="project-card web2">
+        <div class="project-content">
+          <span class="badge">Transit Solution</span>
+          <h2>Emat</h2>
+          <p>Smart transit concept designed to solve logistical bottlenecks, schedule management, and transport challenges across university campuses.</p>
         </div>
       </div>
-      <div class="web2">
-        <div class="image-top">
-          ihomage
-        </div>
-        <div class="image-bottom">
-          image
-        </div>
-      </div>
-      <div class="android">
-        <div class="image-top">
-          ihomage
-        </div>
-        <div class="image-bottom">
-          image
-        </div>
-      </div>
-      <script>
 
-      </script>
-      <div class="threed">
-        <div class="image-top">
-          ihomage
-        </div>
-        <div class="image-bottom">
-          image
+      <!-- PROJECT 3: Enterprise Automation Funnel (Confidentialized) -->
+      <div class="project-card android">
+        <div class="project-content">
+          <span class="badge">Workflow Automation</span>
+          <h2>Automated Assessment Pipeline</h2>
+          <p>Architected an end-to-end evaluation engine with daily roster audits, automated scheduling, and one-click executive briefing generation. Cut weekly review overhead from 8 hrs to 1 hr.</p>
         </div>
       </div>
-      <a href="projects.html">View Projects</a>
+
+      <!-- PROJECT 4: AI Action Item Extractor (Confidentialized) -->
+      <div class="project-card threed">
+        <div class="project-content">
+          <span class="badge">AI Integration</span>
+          <h2>AI Task Intake Engine</h2>
+          <p>Built a custom integration using Google Apps Script and Gemini API to parse complex meeting transcripts, extract key action items, and dynamically assign execution trackers.</p>
+        </div>
+      </div>
+
+      <!-- PROJECT 5: Internal Culture Platform (Confidentialized) -->
+      <div class="project-card web-culture">
+        <div class="project-content">
+          <span class="badge">Web Application</span>
+          <h2>Internal Learning & Culture Platform</h2>
+          <p>Custom web app built with modern JS and Apps Script backend featuring digital reservations, community reviews, and spotlight tracking for team engagement.</p>
+        </div>
+      </div>
+
+      <a href="projects.html" class="cta-link">View All Projects</a>
     </div>
 
+    <!-- CONTACT SECTION -->
     <div class="contacts" id="contacts">
       <h1>CONTACT</h1>
-      <h2>You have a project</br>
-        print or web creation?</br>
-        Contact me.</h2>
-      <a href="">LEVISKIBET2002@GMAIL.COM</a>
-      <a href="">+254 (0)7 41 89 88 29</a>
+      <h2>Have an automation project<br />or full-stack creation?<br />Let's connect.</h2>
+      <a href="mailto:LEVISKIBET2002@GMAIL.COM">LEVISKIBET2002@GMAIL.COM</a>
+      <a href="tel:+254741898829">+254 (0)7 41 89 88 29</a>
     </div>
+
     <div class="progress-bar"></div>
   </section>
 
+  <!-- RIGHT MENU TRIGGER -->
   <section id="right">
-    <div class="nav">
+    <div class="nav" id="nav-trigger">
       <div></div>
       <div></div>
     </div>
   </section>
+
+  <!-- SIDEBAR NAVIGATION OVERLAY -->
   <section id="sidebar">
     <ul class="main-side">
       <li>1.<span class="numbered"><a href="#landing">Home</a></span></li>
-      <li>2.<span class="numbered"><a href="#portfolio">Portfolio</a></span></li>
-      <li>3.<span class="numbered"><a href="#contacts">Contact</a></span></li>
+      <li>2.<span class="numbered"><a href="#about">About & Impact</a></span></li>
+      <li>3.<span class="numbered"><a href="#portfolio">Portfolio</a></span></li>
+      <li>4.<span class="numbered"><a href="#contacts">Contact</a></span></li>
     </ul>
     <div class="closeer">
-      <div class="closer-container">
+      <div class="closer-container" id="close-sidebar">
         <div class="first-closer"></div>
         <div class="second-closer"></div>
       </div>
     </div>
   </section>
+
+  <!-- INTERACTIVITY SCRIPT -->
+  <script>
+    // Reveal Animations
+    ScrollReveal().reveal('.metric-card', { interval: 200 });
+    ScrollReveal().reveal('.project-card', { interval: 200 });
+
+    // Socials Drawer
+    const hoverelement = document.querySelector('.animated');
+    const socials = document.querySelector('.socials');
+    const socialsLinks = document.getElementById('logos-placeholder');
+    let isRotated = false;
+
+    socials.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isRotated) {
+        hoverelement.style.transform = 'rotate(0deg)';
+        socialsLinks.style.animation = 'fade-out 0.3s linear forwards';
+        setTimeout(() => { socialsLinks.style.display = 'none'; }, 300);
+      } else {
+        hoverelement.style.transform = 'rotate(90deg)';
+        socialsLinks.style.display = 'flex';
+        socialsLinks.style.animation = 'fade-in 0.3s linear forwards';
+      }
+      isRotated = !isRotated;
+    });
+
+    // Sidebar Overlay Controls
+    const sidebar = document.getElementById('sidebar');
+    const navTrigger = document.getElementById('nav-trigger');
+    const closeTrigger = document.getElementById('close-sidebar');
+    let isToggled = false;
+
+    function toggleSidebar() {
+      if (!isToggled) {
+        sidebar.style.display = 'flex';
+        sidebar.style.animation = 'slide-in 0.4s ease forwards';
+      } else {
+        sidebar.style.animation = 'slide-out 0.4s ease forwards';
+        setTimeout(() => { sidebar.style.display = 'none'; }, 350);
+      }
+      isToggled = !isToggled;
+    }
+
+    navTrigger.addEventListener('click', toggleSidebar);
+    closeTrigger.addEventListener('click', toggleSidebar);
+  </script>
 </body>
+
 </html>
-<script>
-  const hoverelement = document.querySelector('.animated');
-  const socials = document.querySelector('.socials');
-  const socialsLinks = document.getElementById('logos-placeholder');
-  const body = document.getElementById('center');
-
-  let isRotated = false;
-  let istoggled = false;
-
-  ScrollReveal().reveal('.web')
-  ScrollReveal().reveal('.image-top', { delay: 300 })
-  ScrollReveal().reveal('.image-bottom', { delay: 600 })
-
-  function rotate() {
-    if (isRotated) {
-      body.removeEventListener('click', rotate);
-      hoverelement.style.transform = 'rotate(0deg)';
-      socialsLinks.style.animation = 'fade-out 0.4s linear';
-      setTimeout(() => {
-        socialsLinks.style.display = 'none';
-      }, 300);
-    } else {
-      body.addEventListener('click', rotate);
-      hoverelement.style.transform = 'rotate(90deg)';
-      socialsLinks.style.display = 'flex';
-      socialsLinks.style.animation = 'fade-in 0.3s linear';
-    }
-    isRotated = !isRotated;
-  }
-  socials.addEventListener('click', rotate);
-
-
-  const sidebar = document.getElementById('sidebar');
-  const sidebarButton = document.querySelector('.closer-container');
-  const sidebarbutton2 = document.querySelector('.nav');
-
-  function toggle() {
-    if (istoggled) {
-      body.addEventListener('click', toggle);
-      sidebar.style.display = 'flex';
-      sidebar.style.animation = 'slide-in 0.4s linear';
-    } else {
-      body.removeEventListener('click', toggle)
-      sidebar.style.animation = 'slide-out 0.4s linear';
-      setTimeout(() => {
-        sidebar.style.display = 'none';
-      }, 300);
-    }
-
-    istoggled = !istoggled;
-  }
-
-  sidebarButton.addEventListener('click', toggle);
-  sidebarbutton2.addEventListener('click', toggle);
-
-
-</script>
