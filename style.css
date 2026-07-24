@@ -218,7 +218,7 @@ a {
   width: 420px;
   height: 420px;
   z-index: 3;
-  border-radius: 210px;
+  border-radius: 0 0 210px 210px;
   overflow: hidden;
   display: flex;
   z-index: 3;
