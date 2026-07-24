@@ -31,17 +31,21 @@
   </header>
 
   <main>
-    <!-- HERO SECTION WITH PORTRAIT ABOVE TITLE & SPHERE ANCHOR -->
+    <!-- HERO SECTION WITH SIDE-BY-SIDE VISUALS (IMAGE LEFT, SPHERE RIGHT) -->
     <section id="hero" class="hero-section">
-      <div class="hero-top-wrapper">
+      
+      <!-- SIDE-BY-SIDE VISUAL ROW -->
+      <div class="hero-visual-row">
+        <!-- BIG PORTRAIT IMAGE ON THE LEFT -->
         <div class="hero-portrait-container">
-          <!-- Replace src with your preferred image path e.g. assets/IMG_2661-1.png -->
           <img src="assets/IMG_2661-1.png" alt="Ronald Levis Kibet" class="hero-portrait-img">
         </div>
-        <!-- SPHERE ANCHOR POSITIONS THE CANVAS BEHIND/AROUND THE PORTRAIT -->
+        
+        <!-- INTERACTIVE SPHERE ANCHOR ON THE RIGHT -->
         <div class="hero-visual" id="hero-visual-anchor"></div>
       </div>
 
+      <!-- TITLE & DESCRIPTION BELOW VISUALS -->
       <div class="hero-content">
         <span class="eyebrow">Software Engineer & Executive Assistant</span>
         <h1>Turning executive chaos into streamlined, reliable systems.</h1>
@@ -425,8 +429,8 @@
     function render() {
       ctx.clearRect(0, 0, width, height);
 
-      // Dynamically locate center of the portrait/anchor element
-      let heroCenter = { x: width / 2, y: height * 0.35 };
+      // Dynamically locate center of the right sphere anchor container
+      let heroCenter = { x: width * 0.75, y: height * 0.35 };
       if (heroVisual) {
         const rect = heroVisual.getBoundingClientRect();
         heroCenter = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
@@ -442,8 +446,8 @@
       rotX += 0.003;
       rotY += 0.005;
 
-      // Size sphere relative to the portrait image
-      const sphereRadius = Math.min(width, height) * 0.24;
+      // Size sphere to match initial visual scale
+      const sphereRadius = Math.min(width, height) * 0.22;
       const isDark = htmlEl.getAttribute('data-theme') === 'dark';
       
       ctx.fillStyle = isDark ? '#ffffff' : '#0f1115';
