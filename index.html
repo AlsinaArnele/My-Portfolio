@@ -31,27 +31,22 @@
   </header>
 
   <main>
-    <!-- HERO SECTION WITH SIDE-BY-SIDE VISUALS (IMAGE LEFT, SPHERE RIGHT) -->
+    <!-- HERO SECTION (MATCHING REFERENCE: TEXT LEFT, PORTRAIT OVER SPHERE RIGHT) -->
     <section id="hero" class="hero-section">
-      
-      <!-- SIDE-BY-SIDE VISUAL ROW -->
-      <div class="hero-visual-row">
-        <!-- BIG PORTRAIT IMAGE ON THE LEFT -->
-        <div class="hero-portrait-container">
-          <img src="assets/IMG_2661-1.png" alt="Ronald Levis Kibet" class="hero-portrait-img">
-        </div>
-        
-        <!-- INTERACTIVE SPHERE ANCHOR ON THE RIGHT -->
-        <div class="hero-visual" id="hero-visual-anchor"></div>
-      </div>
-
-      <!-- TITLE & DESCRIPTION BELOW VISUALS -->
+      <!-- LEFT CONTENT COLUMN -->
       <div class="hero-content">
         <span class="eyebrow">Software Engineer & Executive Assistant</span>
-        <h1>Turning executive chaos into streamlined, reliable systems.</h1>
+        <h1>Turning executive chaos into <span class="highlight">streamlined, reliable systems</span>.</h1>
         <p class="hero-subtext">Architecting scalable web applications, enterprise AI workflows, and background automations that eliminate operational friction.</p>
         <div class="hero-cta">
-          <a href="#projects" class="btn-secondary">Explore Work & Impact <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="#projects" class="btn-pill">Explore Work & Impact <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- RIGHT STAGE: PORTRAIT IN FRONT, SPHERE CANVASES BEHIND -->
+      <div class="hero-stage" id="hero-visual-anchor">
+        <div class="portrait-wrapper">
+          <img src="assets/IMG_2661-1.png" alt="Ronald Levis Kibet" class="portrait-img">
         </div>
       </div>
     </section>
@@ -325,9 +320,9 @@
 
     let width, height;
     let particles = [];
-    const numParticles = 220;
+    const numParticles = 230;
     
-    let mouse = { x: -1000, y: -1000, radius: 100 };
+    let mouse = { x: -1000, y: -1000, radius: 110 };
     let isClickedExploded = false;
     let currentDispersion = 0; // 0 = complete sphere, 1 = exploded floating
 
@@ -409,7 +404,7 @@
 
         // Depth perspective calculation
         const scale = 300 / (300 + targetZ);
-        const pointRadius = Math.max(1.2, scale * (1.8 + (1 - dispersion) * 0.8));
+        const pointRadius = Math.max(1.2, scale * (2.2 + (1 - dispersion) * 0.9));
 
         return { x: finalX, y: finalY, radius: pointRadius, z: targetZ };
       }
@@ -429,8 +424,8 @@
     function render() {
       ctx.clearRect(0, 0, width, height);
 
-      // Dynamically locate center of the right sphere anchor container
-      let heroCenter = { x: width * 0.75, y: height * 0.35 };
+      // Locate center of the right stage anchor container
+      let heroCenter = { x: width * 0.72, y: height * 0.48 };
       if (heroVisual) {
         const rect = heroVisual.getBoundingClientRect();
         heroCenter = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
@@ -446,11 +441,12 @@
       rotX += 0.003;
       rotY += 0.005;
 
-      // Size sphere to match initial visual scale
-      const sphereRadius = Math.min(width, height) * 0.22;
+      // Size sphere halo behind portrait
+      const sphereRadius = Math.min(width, height) * 0.28;
       const isDark = htmlEl.getAttribute('data-theme') === 'dark';
       
-      ctx.fillStyle = isDark ? '#ffffff' : '#0f1115';
+      // Halo color accent
+      ctx.fillStyle = isDark ? '#ffffff' : '#121214';
 
       particles.forEach(p => {
         const pt = p.update(rotX, rotY, currentDispersion, heroCenter, sphereRadius);
@@ -458,7 +454,7 @@
         ctx.arc(pt.x, pt.y, pt.radius, 0, Math.PI * 2);
         
         // Depth-based opacity
-        const alpha = Math.min(1, Math.max(0.2, (pt.z + 200) / 400));
+        const alpha = Math.min(1, Math.max(0.25, (pt.z + 200) / 400));
         ctx.globalAlpha = alpha;
         ctx.fill();
       });
@@ -478,11 +474,11 @@
       mouse.y = -1000;
     });
 
-    window.addEventListener('click', (e) => {
-      if (window.scrollY < 300) {
+    if (heroVisual) {
+      heroVisual.addEventListener('click', () => {
         isClickedExploded = !isClickedExploded;
-      }
-    });
+      });
+    }
 
     initParticles();
     render();
