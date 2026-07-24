@@ -215,14 +215,14 @@ a {
 
 .portrait-wrapper {
   position: relative;
-  width: 320px;
+  width: 420px;
   height: 420px;
-  z-index: 3; /* Rendered safely above the background sphere canvas */
-  border-radius: 160px 160px 24px 24px;
+  z-index: 3;
+  border-radius: 210px;
   overflow: hidden;
   display: flex;
   z-index: 3;
-  background: transparent; /* Ensures no solid fill */
+  background: transparent;
   border: none;
   justify-content: center;
   align-items: flex-end;
