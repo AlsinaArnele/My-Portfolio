@@ -221,6 +221,9 @@ a {
   border-radius: 160px 160px 24px 24px;
   overflow: hidden;
   display: flex;
+  z-index: 3;
+  background: transparent; /* Ensures no solid fill */
+  border: none;
   justify-content: center;
   align-items: flex-end;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
