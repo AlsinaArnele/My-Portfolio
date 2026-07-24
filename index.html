@@ -1,221 +1,481 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ronald Levis Kibet — Portfolio</title>
+  <title>Ronald Levis Kibet — Software & Systems Automation</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script src="https://unpkg.com/scrollreveal@4"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      ScrollReveal({ duration: 1000, distance: '20px' });
-    });
-  </script>
 </head>
 
 <body>
-  <!-- LEFT NAVIGATION & SOCIALS -->
-  <section id="left">
-    <img src="assets/Light.png" alt="Logo" class="logo">
-    <div class="left-bottom">
-      <div class="socials">
-        <div class="animated"></div>
-        <div class="static"></div>
-        <ul id="logos-placeholder" class="hover-logo">
-          <li><a href="https://linkedin.com/in/yourprofile" rel="noopener" target="_blank">LinkedIn</a></li>
-          <li><a href="https://github.com/yourusername" rel="noopener" target="_blank">GitHub</a></li>
-          <li><a href="https://sketchfab.com/yourusername" rel="noopener" target="_blank">SketchFab</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <!-- MAIN CENTER CONTENT -->
-  <section id="center">
+  <!-- BACKGROUND FIXED INTERACTIVE CANVAS -->
+  <canvas id="sphere-canvas"></canvas>
+
+  <!-- TOP NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <a href="#hero" class="logo-text">levis.digital</a>
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#projects">Work</a>
+      <a href="#insights">Impact</a>
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
     <!-- HERO SECTION -->
-    <div class="hero" id="landing">
-      <div class="hero-text">
-        <h1>Ronald<br /><span class="firstname">Levis</span> Kibet</h1>
-        <h2>Software Developer & Operations Automations Engineer</h2>
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <span class="eyebrow">Software Engineer & Automation Lead</span>
+        <h1>Building resilient systems that turn complex friction into effortless simplicity.</h1>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-secondary">Explore Work & Impact <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
       </div>
-    </div>
+      <!-- Anchor box for sphere alignment -->
+      <div class="hero-visual" id="hero-visual-anchor"></div>
+    </section>
 
-    <!-- HERO IMAGE REEL -->
-    <div class="imagess">
-      <div class="image-left"></div>
-      <div class="image-right">
-        <div class="reel">
-          <div class="reel-item">
-            <img src="assets/IMG_2661-1.png" alt="Visual Identity">
+    <!-- IMPACT STATS & BRAND BAR -->
+    <section class="brand-bar">
+      <div class="brand-item"><span>ATHENA</span> Enterprise Ops[cite: 1]</div>
+      <div class="brand-item"><span>IBM</span> Call for Code</div>
+      <div class="brand-item"><span>EMAT</span> Campus Transit</div>
+      <div class="brand-item highlight"><span>87.5%</span> Time Reduction[cite: 1]</div>
+      <div class="brand-item highlight"><span>>300</span> Team Members Onboarded[cite: 1]</div>
+    </section>
+
+    <!-- DARK PHILOSOPHY SECTION -->
+    <section id="services" class="dark-section">
+      <div class="dark-container">
+        <h2>I architect and build digital products that eliminate operational friction. From AI-driven workflows to full-stack applications, every system is engineered for scale and reliability[cite: 1].</h2>
+        <div class="dark-grid">
+          <div class="dark-card">
+            <h3>01. Process Automation</h3>
+            <p>Architecting end-to-end automated pipelines using Google Apps Script, REST APIs, and instant error-handling loops to liberate hundreds of administrative hours[cite: 1].</p>
           </div>
-          <div class="reel-item">
-            <img src="assets/IMG_2456.JPG" alt="Operations Leader">
+          <div class="dark-card">
+            <h3>02. AI & Data Systems</h3>
+            <p>Integrating modern LLMs (Gemini API) and background triggers into daily workflows to dynamically extract actionable intelligence from unstructured meeting data[cite: 1].</p>
+          </div>
+          <div class="dark-card">
+            <h3>03. Full-Stack Web Dev</h3>
+            <p>Designing and deploying responsive, accessible web and mobile solutions—from healthcare triage applications to internal engagement web apps[cite: 1].</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ABOUT & CORE PHILOSOPHY -->
-    <div class="about" id="about">
-      <h1>Building resilient systems that save time and empower people to grow.</h1>
-      <p class="about-subtext">
-        Specializing in full-stack web applications, AI-driven process automations, and operational workflows that eliminate friction.
-      </p>
-      <a href="experience.html" class="cta-link">Explore Experience & Achievements</a>
-    </div>
-
-    <!-- IMPACT STATS METRICS -->
-    <div class="metrics-container">
-      <div class="metric-card">
-        <h3>87.5%</h3>
-        <p>Weekly Overhead Reduction</p>
-      </div>
-      <div class="metric-card">
-        <h3>>8</h3>
-        <p>Enterprise Automations Built</p>
-      </div>
-      <div class="metric-card">
-        <h3>>300</h3>
-        <p>Team Members Trained & Onboarded</p>
-      </div>
-    </div>
-
-    <!-- PORTFOLIO SECTION -->
-    <div class="portfolio" id="portfolio">
-      <div class="title">
-        <h1>Selected Works</h1>
+    <!-- FEATURED PROJECTS GRID -->
+    <section id="projects" class="projects-section">
+      <div class="section-header">
+        <h2>Selected Works & Case Studies</h2>
+        <p>A collection of full-stack products, campus transit platforms, and enterprise-grade automations.</p>
       </div>
 
-      <!-- PROJECT 1: Medbot (External Project) -->
-      <div class="project-card web">
-        <div class="project-content">
-          <span class="badge">IBM Call for Code</span>
-          <h2>Medbot</h2>
-          <p>Healthcare assistance platform developed for the IBM Call for Code challenge, designed to streamline medical query triage and accessibility.</p>
+      <div class="projects-grid">
+        <!-- PROJECT 1: Medbot -->
+        <article class="project-card grid-half" 
+                 data-title="Medbot Triage Platform" 
+                 data-category="IBM Call for Code Challenge" 
+                 data-problem="Healthcare systems in remote communities face severe triage bottlenecks and slow initial assessment response times."
+                 data-solution="Developed a lightweight, interactive web platform using automated triage logic to quickly assess symptoms and direct patients to emergency resources."
+                 data-impact="Featured as an official entry for the IBM Call for Code challenge, proving accessible healthcare query routing.">
+          <div class="card-image preview-medbot">
+            <span class="card-badge">IBM Call for Code</span>
+          </div>
+          <div class="card-meta">
+            <h3>Medbot Healthcare Triage</h3>
+            <p>Web Platform / Healthcare AI / Assistive Technology</p>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: Emat -->
+        <article class="project-card grid-half" 
+                 data-title="Emat Campus Transit System" 
+                 data-category="Transit & Mobility Platform" 
+                 data-problem="University campus shuttles suffered from unpredictable arrival times, overcrowding, and severe student commuting delays."
+                 data-solution="Designed a smart campus transit prototype enabling real-time route scheduling, seat reservation, and digital ticketing."
+                 data-impact="Significantly improved transit predictability and reduced wait times across high-density university shuttle routes.">
+          <div class="card-image preview-emat">
+            <span class="card-badge">Campus Mobility</span>
+          </div>
+          <div class="card-meta">
+            <h3>Emat Transit Manager</h3>
+            <p>Mobile UI/UX / Smart Logistics / Route Optimization</p>
+          </div>
+        </article>
+
+        <!-- PROJECT 3: Gemini AI Action Extractor -->
+        <article class="project-card grid-full" 
+                 data-title="AI Meeting Task Intake Engine" 
+                 data-category="Enterprise AI Integration" 
+                 data-problem="Leaders spent over 8 hours weekly manually parsing long meeting transcripts to extract and track actionable deliverables[cite: 1]."
+                 data-solution="Architected an automated integration using Google Apps Script and Gemini API to parse meeting transcripts, isolate tasks, and generate execution trackers[cite: 1]."
+                 data-impact="Reduced weekly review overhead by 87.5% (from 8 hours down to 1 hour per week) with automated instant tracking[cite: 1].">
+          <div class="card-image preview-ai">
+            <div class="ai-overlay-text">Where AI meets real-world operational scale[cite: 1].</div>
+            <span class="card-badge">AI & Automation</span>
+          </div>
+          <div class="card-meta">
+            <h3>Automated AI Task Intake & Consolidation Pipeline</h3>
+            <p>Google Apps Script / Gemini API / Automated Executive Workflows[cite: 1]</p>
+          </div>
+        </article>
+
+        <!-- PROJECT 4: Assessment & Eligibility Gateway -->
+        <article class="project-card grid-half" 
+                 data-title="Automated Assessment Pipeline" 
+                 data-category="Operations System" 
+                 data-problem="Manual candidate evaluations were fragmented, required multi-step email routing, and lacked standardized quality controls[cite: 1]."
+                 data-solution="Engineered a zero-friction evaluation funnel with background eligibility audits, dynamic case study allocation, and auto-generated executive drafts[cite: 1]."
+                 data-impact="Fully automated 80% of the candidate funnel with human-in-the-loop gates reserved strictly for strategic decisions[cite: 1].">
+          <div class="card-image preview-funnel">
+            <span class="card-badge">Enterprise Scale</span>
+          </div>
+          <div class="card-meta">
+            <h3>Evaluation & Assessment Funnel</h3>
+            <p>Guardrailed Ecosystem / Auto-Calendar Invites / Human-in-the-Loop[cite: 1]</p>
+          </div>
+        </article>
+
+        <!-- PROJECT 5: Internal Culture App -->
+        <article class="project-card grid-half" 
+                 data-title="Internal Learning & Culture Platform" 
+                 data-category="Web Application" 
+                 data-problem="Managing company-wide book club reservations, reviews, and catalog tracking required excessive manual coordination[cite: 1]."
+                 data-solution="Designed, coded, and deployed a custom web app backed by Google Apps Script and Google Sheets for online book reservations and tracking[cite: 1]."
+                 data-impact="Successfully scaled team engagement across multiple departments, establishing a permanent piece of company culture[cite: 1].">
+          <div class="card-image preview-culture">
+            <span class="card-badge">Web Application</span>
+          </div>
+          <div class="card-meta">
+            <h3>Internal Learning Ecosystem</h3>
+            <p>JavaScript / Apps Script Backend / Digital Catalog & Reservations[cite: 1]</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FULL-WIDTH VISUAL BANNER BREAK -->
+    <section class="banner-break">
+      <div class="banner-overlay">
+        <h2>"Systems that scale, people who grow. Every automation is built to eliminate friction and empower the team around it[cite: 1]."</h2>
+        <a href="#contact" class="btn-primary">Collaborate With Me</a>
+      </div>
+    </section>
+
+    <!-- INSIGHTS & ACHIEVEMENTS GRID -->
+    <section id="insights" class="insights-section">
+      <div class="section-header">
+        <h2>Operational Achievements & Systems Impact</h2>
+      </div>
+      <div class="insights-grid">
+        <div class="insight-card">
+          <span class="insight-num">87.5%</span>
+          <h3>Overhead Reduction</h3>
+          <p>Transformed fragmented tracking pipelines into guardrailed ecosystems, cutting weekly admin time from 8 hours to 1 hour[cite: 1].</p>
+        </div>
+        <div class="insight-card">
+          <span class="insight-num">>300</span>
+          <h3>Team Members Enabled</h3>
+          <p>Curated and facilitated national training programs, including 5-day intensive refreshers and 12-week engagement curricula[cite: 1].</p>
+        </div>
+        <div class="insight-card">
+          <span class="insight-num">250+</span>
+          <h3>Event Logistics & Operations</h3>
+          <p>Commanded full operational delivery, venue logistics, color-coded registration workflows, and safety governance for premier events[cite: 1].</p>
         </div>
       </div>
-
-      <!-- PROJECT 2: Emat (External Project) -->
-      <div class="project-card web2">
-        <div class="project-content">
-          <span class="badge">Transit Solution</span>
-          <h2>Emat</h2>
-          <p>Smart transit concept designed to solve logistical bottlenecks, schedule management, and transport challenges across university campuses.</p>
-        </div>
-      </div>
-
-      <!-- PROJECT 3: Enterprise Automation Funnel (Confidentialized) -->
-      <div class="project-card android">
-        <div class="project-content">
-          <span class="badge">Workflow Automation</span>
-          <h2>Automated Assessment Pipeline</h2>
-          <p>Architected an end-to-end evaluation engine with daily roster audits, automated scheduling, and one-click executive briefing generation. Cut weekly review overhead from 8 hrs to 1 hr.</p>
-        </div>
-      </div>
-
-      <!-- PROJECT 4: AI Action Item Extractor (Confidentialized) -->
-      <div class="project-card threed">
-        <div class="project-content">
-          <span class="badge">AI Integration</span>
-          <h2>AI Task Intake Engine</h2>
-          <p>Built a custom integration using Google Apps Script and Gemini API to parse complex meeting transcripts, extract key action items, and dynamically assign execution trackers.</p>
-        </div>
-      </div>
-
-      <!-- PROJECT 5: Internal Culture Platform (Confidentialized) -->
-      <div class="project-card web-culture">
-        <div class="project-content">
-          <span class="badge">Web Application</span>
-          <h2>Internal Learning & Culture Platform</h2>
-          <p>Custom web app built with modern JS and Apps Script backend featuring digital reservations, community reviews, and spotlight tracking for team engagement.</p>
-        </div>
-      </div>
-
-      <a href="projects.html" class="cta-link">View All Projects</a>
-    </div>
+    </section>
 
     <!-- CONTACT SECTION -->
-    <div class="contacts" id="contacts">
-      <h1>CONTACT</h1>
-      <h2>Have an automation project<br />or full-stack creation?<br />Let's connect.</h2>
-      <a href="mailto:LEVISKIBET2002@GMAIL.COM">LEVISKIBET2002@GMAIL.COM</a>
-      <a href="tel:+254741898829">+254 (0)7 41 89 88 29</a>
-    </div>
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <div class="contact-form-wrapper">
+          <h2>Get in touch, let's build something exceptional.</h2>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message feature ready.');">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Tell me about your project or operational goals..." rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+          <div class="direct-links">
+            <a href="mailto:LEVISKIBET2002@GMAIL.COM"><i class="fa-solid fa-envelope"></i> LEVISKIBET2002@GMAIL.COM</a>
+            <a href="tel:+254741898829"><i class="fa-solid fa-phone"></i> +254 (0)7 41 89 88 29</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <div class="progress-bar"></div>
-  </section>
-
-  <!-- RIGHT MENU TRIGGER -->
-  <section id="right">
-    <div class="nav" id="nav-trigger">
-      <div></div>
-      <div></div>
-    </div>
-  </section>
-
-  <!-- SIDEBAR NAVIGATION OVERLAY -->
-  <section id="sidebar">
-    <ul class="main-side">
-      <li>1.<span class="numbered"><a href="#landing">Home</a></span></li>
-      <li>2.<span class="numbered"><a href="#about">About & Impact</a></span></li>
-      <li>3.<span class="numbered"><a href="#portfolio">Portfolio</a></span></li>
-      <li>4.<span class="numbered"><a href="#contacts">Contact</a></span></li>
-    </ul>
-    <div class="closeer">
-      <div class="closer-container" id="close-sidebar">
-        <div class="first-closer"></div>
-        <div class="second-closer"></div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>levis.digital</h3>
+        <p>Software Development & Process Engineering</p>
+      </div>
+      <div class="footer-links">
+        <div class="link-col">
+          <h4>Navigation</h4>
+          <a href="#hero">Home</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Work</a>
+          <a href="#insights">Impact</a>
+        </div>
+        <div class="link-col">
+          <h4>Socials</h4>
+          <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://sketchfab.com" target="_blank" rel="noopener">SketchFab</a>
+        </div>
       </div>
     </div>
-  </section>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ronald Levis Kibet. All rights reserved.</p>
+    </div>
+  </footer>
 
-  <!-- INTERACTIVITY SCRIPT -->
+  <!-- CASE STUDY MODAL -->
+  <dialog id="case-study-modal" class="modal">
+    <div class="modal-content">
+      <button id="close-modal" class="close-btn" aria-label="Close modal">&times;</button>
+      <span id="modal-category" class="modal-badge">Category</span>
+      <h2 id="modal-title">Project Title</h2>
+      <hr />
+      <div class="modal-body">
+        <div class="modal-section">
+          <h4><i class="fa-solid fa-circle-exclamation"></i> Problem Statement</h4>
+          <p id="modal-problem">Details about the challenge...</p>
+        </div>
+        <div class="modal-section">
+          <h4><i class="fa-solid fa-code-branch"></i> The Solution</h4>
+          <p id="modal-solution">Details about implementation...</p>
+        </div>
+        <div class="modal-section highlight-box">
+          <h4><i class="fa-solid fa-chart-line"></i> Measurable Impact</h4>
+          <p id="modal-impact">Key metrics achieved...</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- SCRIPTS & DYNAMIC PARTICLE PHYSICS ENGINE -->
   <script>
-    // Reveal Animations
-    ScrollReveal().reveal('.metric-card', { interval: 200 });
-    ScrollReveal().reveal('.project-card', { interval: 200 });
+    // --- 1. LIGHT/DARK THEME TOGGLE ---
+    const themeBtn = document.getElementById('theme-toggle');
+    const htmlEl = document.documentElement;
 
-    // Socials Drawer
-    const hoverelement = document.querySelector('.animated');
-    const socials = document.querySelector('.socials');
-    const socialsLinks = document.getElementById('logos-placeholder');
-    let isRotated = false;
-
-    socials.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (isRotated) {
-        hoverelement.style.transform = 'rotate(0deg)';
-        socialsLinks.style.animation = 'fade-out 0.3s linear forwards';
-        setTimeout(() => { socialsLinks.style.display = 'none'; }, 300);
-      } else {
-        hoverelement.style.transform = 'rotate(90deg)';
-        socialsLinks.style.display = 'flex';
-        socialsLinks.style.animation = 'fade-in 0.3s linear forwards';
-      }
-      isRotated = !isRotated;
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      htmlEl.setAttribute('data-theme', newTheme);
+      themeBtn.innerHTML = newTheme === 'light' 
+        ? '<i class="fa-solid fa-moon"></i>' 
+        : '<i class="fa-solid fa-sun"></i>';
     });
 
-    // Sidebar Overlay Controls
-    const sidebar = document.getElementById('sidebar');
-    const navTrigger = document.getElementById('nav-trigger');
-    const closeTrigger = document.getElementById('close-sidebar');
-    let isToggled = false;
+    // --- 2. MODAL CONTROLS ---
+    const modal = document.getElementById('case-study-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.getElementById('modal-title').textContent = card.dataset.title;
+        document.getElementById('modal-category').textContent = card.dataset.category;
+        document.getElementById('modal-problem').textContent = card.dataset.problem;
+        document.getElementById('modal-solution').textContent = card.dataset.solution;
+        document.getElementById('modal-impact').textContent = card.dataset.impact;
+        modal.showModal();
+      });
+    });
+    closeModalBtn.addEventListener('click', () => modal.close());
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.close(); });
 
-    function toggleSidebar() {
-      if (!isToggled) {
-        sidebar.style.display = 'flex';
-        sidebar.style.animation = 'slide-in 0.4s ease forwards';
-      } else {
-        sidebar.style.animation = 'slide-out 0.4s ease forwards';
-        setTimeout(() => { sidebar.style.display = 'none'; }, 350);
-      }
-      isToggled = !isToggled;
+    // --- 3. DYNAMIC INTERACTIVE SPHERE & EXPLOSION ENGINE ---
+    const canvas = document.getElementById('sphere-canvas');
+    const ctx = canvas.getContext('2d');
+    const heroVisual = document.getElementById('hero-visual-anchor');
+
+    let width, height;
+    let particles = [];
+    const numParticles = 210;
+    
+    let mouse = { x: -1000, y: -1000, radius: 100 };
+    let isClickedExploded = false;
+    let currentDispersion = 0; // 0 = complete sphere, 1 = exploded floating
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
     }
 
-    navTrigger.addEventListener('click', toggleSidebar);
-    closeTrigger.addEventListener('click', toggleSidebar);
+    class Particle {
+      constructor(i) {
+        this.index = i;
+        const theta = Math.acos(-1 + (2 * i) / numParticles);
+        const phi = Math.sqrt(numParticles * Math.PI) * theta;
+
+        // Base sphere relative position
+        this.sx = Math.cos(phi) * Math.sin(theta);
+        this.sy = Math.sin(phi) * Math.sin(theta);
+        this.sz = Math.cos(theta);
+
+        // Dispersed floating relative position across screen
+        this.fx = (Math.random() - 0.5) * width * 1.1;
+        this.fy = (Math.random() - 0.5) * height * 1.1;
+        this.fz = (Math.random() - 0.5) * 300;
+
+        // Slow float velocities when exploded
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+
+        // Interactive offset from cursor
+        this.offsetX = 0;
+        this.offsetY = 0;
+      }
+
+      update(rotX, rotY, dispersion, heroCenter, radius) {
+        // 1. Rotate 3D sphere coordinates
+        let y1 = this.sy * Math.cos(rotX) - this.sz * Math.sin(rotX);
+        let z1 = this.sy * Math.sin(rotX) + this.sz * Math.cos(rotX);
+        let x2 = this.sx * Math.cos(rotY) + z1 * Math.sin(rotY);
+        let z2 = -this.sx * Math.sin(rotY) + z1 * Math.cos(rotY);
+
+        // Targeted 3D point in sphere mode
+        const sTargetX = heroCenter.x + x2 * radius;
+        const sTargetY = heroCenter.y + y1 * radius;
+        const sTargetZ = z2 * radius;
+
+        // Targeted 3D point in exploded mode
+        this.fx += this.vx;
+        this.fy += this.vy;
+        if (Math.abs(this.fx) > width * 0.6) this.vx *= -1;
+        if (Math.abs(this.fy) > height * 0.6) this.vy *= -1;
+
+        const fTargetX = width / 2 + this.fx;
+        const fTargetY = height / 2 + this.fy;
+        const fTargetZ = this.fz;
+
+        // Lerp between sphere and exploded state
+        const targetX = sTargetX + (fTargetX - sTargetX) * dispersion;
+        const targetY = sTargetY + (fTargetY - sTargetY) * dispersion;
+        const targetZ = sTargetZ + (fTargetZ - sTargetZ) * dispersion;
+
+        // 2. Cursor repulsion physics
+        const dx = targetX - mouse.x;
+        const dy = targetY - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < mouse.radius) {
+          const force = (1 - dist / mouse.radius) * 45;
+          const angle = Math.atan2(dy, dx);
+          this.offsetX += Math.cos(angle) * force;
+          this.offsetY += Math.sin(angle) * force;
+        }
+
+        // Return offset smoothly to origin
+        this.offsetX *= 0.86;
+        this.offsetY *= 0.86;
+
+        const finalX = targetX + this.offsetX;
+        const finalY = targetY + this.offsetY;
+
+        // Depth perspective calculation
+        const scale = 300 / (300 + targetZ);
+        const pointRadius = Math.max(1.2, scale * (1.8 + (1 - dispersion) * 0.8));
+
+        return { x: finalX, y: finalY, radius: pointRadius, z: targetZ };
+      }
+    }
+
+    function initParticles() {
+      resizeCanvas();
+      particles = [];
+      for (let i = 0; i < numParticles; i++) {
+        particles.push(new Particle(i));
+      }
+    }
+
+    let rotX = 0;
+    let rotY = 0;
+
+    function render() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Determine hero center point
+      let heroCenter = { x: width * 0.75, y: height * 0.45 };
+      if (heroVisual) {
+        const rect = heroVisual.getBoundingClientRect();
+        heroCenter = { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      }
+
+      // Calculate Target Dispersion based on scroll & click
+      const scrollProgress = Math.min(1, window.scrollY / 350);
+      const targetDispersion = isClickedExploded ? 1 : scrollProgress;
+
+      // Smoothly interpolate current dispersion
+      currentDispersion += (targetDispersion - currentDispersion) * 0.08;
+
+      rotX += 0.003;
+      rotY += 0.005;
+
+      const sphereRadius = Math.min(width, height) * 0.22;
+      const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+      
+      // Color styling based on state and theme
+      ctx.fillStyle = isDark ? '#ffffff' : '#0f1115';
+
+      particles.forEach(p => {
+        const pt = p.update(rotX, rotY, currentDispersion, heroCenter, sphereRadius);
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.radius, 0, Math.PI * 2);
+        
+        // Depth-based opacity
+        const alpha = Math.min(1, Math.max(0.2, (pt.z + 200) / 400));
+        ctx.globalAlpha = alpha;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(render);
+    }
+
+    // --- EVENT LISTENERS ---
+    window.addEventListener('resize', initParticles);
+    
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    window.addEventListener('mouseleave', () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    window.addEventListener('click', (e) => {
+      // Toggle explosion state if clicking near sphere at top of page
+      if (window.scrollY < 200) {
+        isClickedExploded = !isClickedExploded;
+      }
+    });
+
+    initParticles();
+    render();
   </script>
 </body>
 
