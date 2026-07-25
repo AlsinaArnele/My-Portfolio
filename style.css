@@ -46,7 +46,7 @@ body {
   position: relative;
 }
 
-/* FIXED PARTICLES CANVAS - SPHERE RENDERS AT Z-INDEX 1 BEHIND PORTRAIT */
+/* FIXED PARTICLES CANVAS */
 #sphere-canvas {
   position: fixed;
   top: 0;
@@ -62,7 +62,7 @@ a {
   color: inherit;
 }
 
-/* --- BUTTONS & PILL STYLING (MATCHING REFERENCE) --- */
+/* --- BUTTONS & PILL STYLING --- */
 .btn-primary {
   background-color: var(--text-primary);
   color: var(--bg-primary);
@@ -150,7 +150,7 @@ a {
   color: var(--accent);
 }
 
-/* --- HERO LAYOUT (SIDE BY SIDE: LEFT TEXT, RIGHT STAGE) --- */
+/* --- HERO SECTION --- */
 .hero-section {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -185,7 +185,6 @@ a {
   margin-bottom: 24px;
 }
 
-/* UNDERLINE HIGHLIGHT EFFECT FROM REFERENCE */
 .highlight {
   position: relative;
   color: var(--accent);
@@ -201,7 +200,6 @@ a {
   max-width: 540px;
 }
 
-/* RIGHT HERO STAGE - PORTRAIT IN FRONT OF SPHERE */
 .hero-stage {
   position: relative;
   width: 100%;
@@ -215,30 +213,22 @@ a {
 
 .portrait-wrapper {
   position: relative;
-  width: 420px;
+  width: 320px;
   height: 420px;
   z-index: 3;
-  border-radius: 0 0 210px 210px;
-  overflow: hidden;
   display: flex;
-  z-index: 3;
-  background: transparent;
-  border: none;
   justify-content: center;
   align-items: flex-end;
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
-  transition: transform 0.4s ease;
-}
-
-.portrait-wrapper:hover {
-  transform: scale(1.02);
+  background: transparent;
+  border: none;
+  overflow: visible;
 }
 
 .portrait-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  mix-blend-mode: normal;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.22));
 }
 
 /* --- BRAND BAR --- */
@@ -498,7 +488,6 @@ a {
   position: relative;
 }
 
-/* CANVAS STAGE (LEFT & LOWER AREA) */
 .contact-visual-stage {
   position: relative;
   width: 100%;
@@ -514,7 +503,6 @@ a {
   display: block;
 }
 
-/* FORM WRAPPER (RIGHT AREA) */
 .contact-form-wrapper {
   position: relative;
   z-index: 5;
@@ -548,7 +536,6 @@ a {
   color: var(--text-secondary);
 }
 
-/* MINIMALIST UNDERLINE INPUT STYLE FROM REFERENCE */
 .form-group input, 
 .form-group textarea {
   width: 100%;
@@ -566,30 +553,6 @@ a {
 .form-group input:focus, 
 .form-group textarea:focus {
   border-bottom-color: var(--text-primary);
-}
-
-/* CHECKBOX & SEND BUTTON */
-.form-checkboxes {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.checkbox-label {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.checkbox-label input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--text-primary);
-  cursor: pointer;
 }
 
 .btn-send {
@@ -627,26 +590,6 @@ a {
   color: var(--accent);
   font-weight: 600;
   font-size: 0.9rem;
-}
-
-/* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1024px) {
-  .contact-body {
-    grid-template-columns: 1fr;
-  }
-  .contact-visual-stage {
-    height: 300px;
-    order: 2;
-  }
-  .contact-form-wrapper {
-    order: 1;
-  }
-}
-
-@media (max-width: 600px) {
-  .form-row {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* --- FOOTER --- */
@@ -792,6 +735,9 @@ a {
   .hero-subtext { margin-left: auto; margin-right: auto; }
   .hero-stage { height: 380px; }
   .portrait-wrapper { width: 260px; height: 340px; }
+  .contact-body { grid-template-columns: 1fr; }
+  .contact-visual-stage { height: 300px; order: 2; }
+  .contact-form-wrapper { order: 1; }
   .dark-grid, .insights-grid { grid-template-columns: 1fr; }
 }
 
@@ -799,5 +745,6 @@ a {
   .nav-links a:not(.btn-primary):not(#theme-toggle) { display: none; }
   .projects-grid { grid-template-columns: 1fr; }
   .grid-full { grid-column: span 1; }
+  .form-row { grid-template-columns: 1fr; }
   .footer-container { flex-direction: column; gap: 40px; }
 }
