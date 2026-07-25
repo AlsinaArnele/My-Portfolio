@@ -228,7 +228,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 0 0 330px 330px;
+  border-radius: 0 0 380px 380px;
   filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.22));
 }
 
