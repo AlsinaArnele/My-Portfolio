@@ -215,7 +215,7 @@ a {
   position: relative;
   width: 960px;
   height: auto;
-  border-radius: 480px;
+  border-radius: 0 0 480px 480px;
   z-index: 3;
   display: flex;
   justify-content: center;
