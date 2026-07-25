@@ -213,8 +213,8 @@ a {
 
 .portrait-wrapper {
   position: relative;
-  width: 320px;
-  height: 420px;
+  width: 640px;
+  height: auto;
   z-index: 3;
   display: flex;
   justify-content: center;
