@@ -205,22 +205,59 @@
     </section>
 
     <!-- CONTACT SECTION -->
+    <!-- CONTACT SECTION (MATCHING REFERENCE LAYOUT) -->
     <section id="contact" class="contact-section">
-      <div class="contact-container">
+      <div class="contact-header">
+        <h2>Get in touch, let's build something exceptional.</h2>
+      </div>
+
+      <div class="contact-body">
+        <!-- 3D SPINNING & UNDULATING CANVAS CONTAINER -->
+        <div class="contact-visual-stage">
+          <canvas id="contact-mesh-canvas"></canvas>
+        </div>
+
+        <!-- FORM CONTAINER ON THE RIGHT -->
         <div class="contact-form-wrapper">
-          <h2>Get in touch, let's build something exceptional.</h2>
-          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message feature ready.');">
-            <div class="form-group">
-              <input type="text" placeholder="Your Name" required>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name*</label>
+                <input type="text" placeholder="Ronald" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name*</label>
+                <input type="text" placeholder="Kibet" required>
+              </div>
             </div>
-            <div class="form-group">
-              <input type="email" placeholder="Your Email" required>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Company Email*</label>
+                <input type="email" placeholder="levis@example.com" required>
+              </div>
+              <div class="form-group">
+                <label>Company / Organization</label>
+                <input type="text" placeholder="Acme Inc.">
+              </div>
             </div>
-            <div class="form-group">
-              <textarea placeholder="Tell me about your project or operational goals..." rows="4" required></textarea>
+
+            <div class="form-group full-width">
+              <label>Your Message*</label>
+              <textarea placeholder="Tell me about your project or operational goals..." rows="3" required></textarea>
             </div>
-            <button type="submit" class="btn-primary">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+
+            <div class="form-checkboxes">
+              <label class="checkbox-label">
+                <input type="checkbox" required> I accept the Privacy Policy*
+              </label>
+            </div>
+
+            <button type="submit" class="btn-send">
+              Send <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </form>
+
           <div class="direct-links">
             <a href="mailto:LEVISKIBET2002@GMAIL.COM"><i class="fa-solid fa-envelope"></i> LEVISKIBET2002@GMAIL.COM</a>
             <a href="tel:+254741898829"><i class="fa-solid fa-phone"></i> +254 (0)7 41 89 88 29</a>
@@ -482,7 +519,135 @@
 
     initParticles();
     render();
+    // --- 4. 3D SPINNING & INTERACTIVE CONTACT WAVE CANVAS ---
+const cCanvas = document.getElementById('contact-mesh-canvas');
+const cCtx = cCanvas.getContext('2d');
+
+let cWidth, cHeight;
+let cGrid = [];
+const cols = 48;
+const rows = 26;
+
+let cMouse = { x: -1000, y: -1000, radius: 120 };
+let spinAngle = 0;
+
+function resizeContactCanvas() {
+  if (!cCanvas) return;
+  const parent = cCanvas.parentElement;
+  cWidth = cCanvas.width = parent.clientWidth;
+  cHeight = cCanvas.height = parent.clientHeight;
+}
+
+function initContactGrid() {
+  resizeContactCanvas();
+  cGrid = [];
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      // Normalized coordinates (-0.5 to 0.5)
+      const u = (c / (cols - 1)) - 0.5;
+      const v = (r / (rows - 1)) - 0.5;
+
+      cGrid.push({
+        u: u,
+        v: v,
+        baseX: u * 480,
+        baseY: v * 220,
+        offsetX: 0,
+        offsetY: 0,
+        offsetZ: 0
+      });
+    }
+  }
+}
+
+function renderContactMesh() {
+  if (!cCanvas) return;
+  cCtx.clearRect(0, 0, cWidth, cHeight);
+
+  spinAngle += 0.009; // Continuous rotation speed
+  const time = Date.now() * 0.002;
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  cCtx.fillStyle = isDark ? '#ffffff' : '#121214';
+
+  const centerX = cWidth * 0.5;
+  const centerY = cHeight * 0.55;
+
+  cGrid.forEach(p => {
+    // 3D Wave Equation (Undulating surface)
+    const wave1 = Math.sin(p.u * 6 + time) * 35;
+    const wave2 = Math.cos(p.v * 5 + time * 1.2) * 25;
+    const wave3 = Math.sin((p.u + p.v) * 4 + time * 0.8) * 20;
+    
+    let x3d = p.baseX;
+    let y3d = p.baseY + wave1 + wave2;
+    let z3d = wave3;
+
+    // Apply 3D Y-Axis Rotation (Spinning effect)
+    const cosA = Math.cos(spinAngle);
+    const sinA = Math.sin(spinAngle);
+    
+    let rx = x3d * cosA - z3d * sinA;
+    let rz = x3d * sinA + z3d * cosA;
+    let ry = y3d + Math.sin(p.u * 3 + spinAngle) * 15; // Subtle tilt modulation
+
+    // Perspective Projection
+    const depthScale = 350 / (350 + rz);
+    let screenX = centerX + rx * depthScale;
+    let screenY = centerY + ry * depthScale;
+
+    // Interactive Cursor Repulsion Physics
+    const dx = screenX - cMouse.x;
+    const dy = screenY - cMouse.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist < cMouse.radius) {
+      const force = (1 - dist / cMouse.radius) * 35;
+      const angle = Math.atan2(dy, dx);
+      p.offsetX += Math.cos(angle) * force;
+      p.offsetY += Math.sin(angle) * force;
+    }
+
+    // Return offset smoothly to origin
+    p.offsetX *= 0.85;
+    p.offsetY *= 0.85;
+
+    screenX += p.offsetX;
+    screenY += p.offsetY;
+
+    // Render dot with radius and alpha based on depth
+    const radius = Math.max(0.8, depthScale * 2.2);
+    const alpha = Math.min(1, Math.max(0.15, (rz + 200) / 350));
+
+    cCtx.beginPath();
+    cCtx.arc(screenX, screenY, radius, 0, Math.PI * 2);
+    cCtx.globalAlpha = alpha;
+    cCtx.fill();
+  });
+
+  requestAnimationFrame(renderContactMesh);
+}
+
+// Track cursor inside the contact visual container
+if (cCanvas) {
+  window.addEventListener('resize', initContactGrid);
+  
+  cCanvas.parentElement.addEventListener('mousemove', (e) => {
+    const rect = cCanvas.getBoundingClientRect();
+    cMouse.x = e.clientX - rect.left;
+    cMouse.y = e.clientY - rect.top;
+  });
+
+  cCanvas.parentElement.addEventListener('mouseleave', () => {
+    cMouse.x = -1000;
+    cMouse.y = -1000;
+  });
+
+  initContactGrid();
+  renderContactMesh();
+}
   </script>
+  
 </body>
 
 </html>
